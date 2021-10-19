@@ -1,7 +1,16 @@
 import "dotenv/config";
 import express, { response } from "express";
 
+
+import { router } from "./routes";
+
 const app = express();
+
+//Para ele pegar a request do body para poder pegar o code
+app.use(express.json())
+
+//Usando a rota criada
+app.use(router);
 
 //Route Github para fazer a sua autenticação
 app.get("/github", (req,res)=>{
