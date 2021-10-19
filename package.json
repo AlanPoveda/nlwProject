@@ -5,7 +5,7 @@
   "author": "Alan Poveda <alsepoveda@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/app.ts"
+    "dev": "ts-node-dev --exit-child src/app.ts"
   },
   "dependencies": {
     "@prisma/client": "3.2.1",
