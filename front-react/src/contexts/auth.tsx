@@ -50,7 +50,9 @@ export function AuthProvider(props: AuthProvider) {
         const { token, user } = response.data;
 
 
-        localStorage.setItem('@dowhile:token', token)
+        localStorage.setItem('@dowhile:token', token);
+
+        api.defaults.headers.common.authorization = `Bearer ${token}`;
 
         setUser(user)
 

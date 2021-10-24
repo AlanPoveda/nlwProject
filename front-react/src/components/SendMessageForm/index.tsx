@@ -1,5 +1,5 @@
 import { useContext, useState, FormEvent } from "react";
-import { VscGithubInverted, VscSignOut } from "react-icons/vsc";
+import { VscDebugBreakpointConditionalUnverified, VscGithubInverted, VscSignOut } from "react-icons/vsc";
 import { AuthContext } from "../../contexts/auth";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
@@ -10,11 +10,15 @@ export function SendMessageForm() {
     const [ message, setMessage] = useState("");
 
     async function handleSendMessage(event: FormEvent){
+        event.preventDefault()
+
         if(!message.trim()){
+            console.log("não há mensagem")
             return;
         }
 
         await api.post('messages', { message })
+        setMessage('');
     }
 
     return (
